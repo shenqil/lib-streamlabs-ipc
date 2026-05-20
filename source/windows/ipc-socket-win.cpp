@@ -19,7 +19,7 @@ inline std::wstring make_wide_string(std::string text)
 	return converter.from_bytes(text);
 }
 
-inline void validate_create_param(std::string name, size_t max_instances)
+inline void validate_create_param(const std::string &name, size_t max_instances)
 {
 	if (name.length() == 0) {
 		throw std::invalid_argument("'name' can't be empty.");
@@ -32,7 +32,7 @@ inline void validate_create_param(std::string name, size_t max_instances)
 	}
 }
 
-inline void validate_open_param(std::string name)
+inline void validate_open_param(const std::string &name)
 {
 	if (name.length() == 0) {
 		throw std::invalid_argument("'name' can't be empty.");
@@ -41,7 +41,7 @@ inline void validate_open_param(std::string name)
 	}
 }
 
-inline std::string make_windows_compatible(std::string &name)
+inline std::string make_windows_compatible(const std::string &name)
 {
 	std::string out = name;
 	for (char &v : out) {
